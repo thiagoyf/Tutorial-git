@@ -19,7 +19,7 @@ git status
 ```
 
 At this point, we have a clone (i.e. files and full history) of the remote repository on our local machine.
-Let's create a new file (in the working directory)
+Let's create a new file (in the *working directory*)
 
 ```sh
 echo "Hi" > a.txt
@@ -51,7 +51,7 @@ git status
 
 Let's stop for a second, and see what happened here:
 
-A repo is a graph of commit objects.
+A repo is a [graph of commit objects].
 A commit object is a snapshot of the codebase, with some extra metadata.
 When we run git commit, a new commit object gets created and added to the graph.
 An edge is created from this new commit to its parent (i.e. The most recent commit before we ran git commit).
