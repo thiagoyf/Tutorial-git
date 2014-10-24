@@ -2,7 +2,7 @@
 
 git config --global user.email "thiagoyudifukunaga@gmail.com"
 
-git config --global user.name "Neil Gee"
+git config --global user.name "Thiago Yudi Fukunaga"
 
 git config --global core.editor "vi"
 
