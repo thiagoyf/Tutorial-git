@@ -1,6 +1,6 @@
 /* Set up Git Configuration */
 
-git config --global user.email "neil@coolestguidesontheplanet.com"
+git config --global user.email "thiagoyudifukunaga@gmail.com"
 
 git config --global user.name "Neil Gee"
 
