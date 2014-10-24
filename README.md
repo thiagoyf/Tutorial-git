@@ -1,5 +1,5 @@
-CSC301 - Tutorial 1, using Git & GitHub
-============================================
+Turorail Using Git & GitHub
+==========================================
 
 Let's go through a short session of using Git. We will talk about the internals of Git, and its terminology as we go along.
 
@@ -10,26 +10,45 @@ Let's clone a remote repo
 
 ```sh
 git clone REPO-URL
-Check the status of your repo
 ```
 
+Check the status of your repo
+
+```sh
 git status
+```
+
 At this point, we have a clone (i.e. files and full history) of the remote repository on our local machine.
 Let's create a new file (in the working directory)
 
+```sh
 echo "Hi" > a.txt
+```
+
 Add the file (to the index/staging-area)
 
+```sh
 git add a.txt
+```
+
 Check the status of your repo, and see what's different
 
+```sh
 git status
+```
+
 Now that Git knows that we are interested in including a.txt in our next commit, let's commit the file (to the history)
 
+```sh
 git commit -m "Adding a.txt"
+```
+ 
 Check the status of your repo again, and see what's different this time
 
+```sh
 git status
+```
+
 Let's stop for a second, and see what happened here:
 
 A repo is a graph of commit objects.
