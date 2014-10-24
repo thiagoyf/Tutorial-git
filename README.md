@@ -1,14 +1,17 @@
 CSC301 - Tutorial 1, using Git & GitHub
-==
+============================================
+
 Let's go through a short session of using Git. We will talk about the internals of Git, and its terminology as we go along.
 
 Basics
-==
+--------
 
 Let's clone a remote repo
 
+```sh
 git clone REPO-URL
 Check the status of your repo
+```
 
 git status
 At this point, we have a clone (i.e. files and full history) of the remote repository on our local machine.
