@@ -7,44 +7,44 @@ We will talk about the internals of Git, and its terminology as we go along.
 
 Let's clone a remote repo
 
-```
+```sh
 git clone REPO-URL
 ```
 
 Check the status of your repo
 
-```
+```sh
 git status
 ```
 
 At this point, we have a clone (i.e. files and full history) of the remote repository on our local machine.    
 Let's create a new file (in the *working directory*)
 
-```
+```sh
 echo "Hi" > a.txt
 ```
 
 Add the file (to the *index*/*staging-area*)
 
-```
+```sh
 git add a.txt
 ```
 
 Check the status of your repo, and see what's different
 
-```
+```sh
 git status
 ```
 
 Now that Git knows that we are interested in including `a.txt` in our next commit, let's commit the file (to the *history*)
 
-```
+```sh
 git commit -m "Adding a.txt"
 ```
 
 Check the status of your repo again, and see what's different this time
 
-```
+```sh
 git status
 ```
 
@@ -56,7 +56,7 @@ Let's stop for a second, and see what happened here:
 
 At this point, `a.txt` is committed to your **local repo** (i.e. "the clone"), let's push our changes to the remote repository (i.e. "the origin"):
 
-```
+```sh
 git push origin master
 ```
 
@@ -89,20 +89,20 @@ So far, we've pushed changes between different repositories. That is, each repo 
 
 Let's create (and switch to) a new branch 
 
-```
+```sh
 git checkout -b feature1
 ```
 
 We use the `checkout` command to switch between branches
 
-```
+```sh
 git checkout master
 git checkout feature1
 ```
 
 Let's make some changes in our branch
 
-```
+```sh
 echo "Bye" > b.txt
 git add b.txt
 git commit -m "Adding b.txt to the feature1 branch"
@@ -110,7 +110,7 @@ git commit -m "Adding b.txt to the feature1 branch"
 
 Notice that the changes exist only in the `feature1` branch
 
-```
+```sh
 git checkout master
 ls
 git checkout feature1
@@ -120,7 +120,7 @@ ls
 
 Let's modify `a.txt` in the `feature1` branch
 
-```
+```sh
 echo "Modification 1" >> a.txt
 git commit -m "Modifying a.txt in feature1 branch"
 ```
@@ -129,13 +129,13 @@ Oops, Git complains that there is nothing to commit (and give us a hint).
 Git doesn't assume you want to commit modified files by default. For those of you who are used to SVN, this behaviour may seem a little odd.    
 We have two options now, we can either run `git add a.txt`, or we can run `git commit` with the `-a` option, which tells Git to add all (tracked) modified files to this commit.
 
-```
+```sh
 git commit -a -m "Modifying a.txt in feature1 branch"
 ```
 
 At this point `feature1` branch doesn't exist on the remote repo (origin), let's push it there
 
-```
+```sh
 git push origin feature1
 ```
 
@@ -144,7 +144,7 @@ git push origin feature1
 
 Next, let's switch back to the `master` branch, and make other modifications to `a.txt`
 
-```
+```sh
 git checkout master
 echo "Modification 2" >> a.txt
 git commit -m "Modifying a.txt in master"
@@ -152,7 +152,7 @@ git commit -m "Modifying a.txt in master"
 
 Now, let's try to merge `feature1` into `master` (we need to be on the `master` branch in order to do that, which we are).
 
-```
+```sh
 git merge feature1
 ```
 
@@ -193,7 +193,7 @@ For this tutorial, we will only use `reset`.
 
 Let's see an example ...
 
-```
+```sh
 git log
 ```
 
@@ -201,7 +201,7 @@ With `git log` we can see the id's of all commit objects in the history. We will
 
 Let's commit some changes
 
-```
+```sh
 touch c.txt
 git add c.txt
 git commit c.txt
@@ -210,7 +210,7 @@ git status
 
 Let's start with
 
-```
+```sh
 git reset --soft COMMIT-ID
 git status
 ```
@@ -218,14 +218,14 @@ git status
 At this point, `HEAD` points to the most recent commit before `c.txt` was added.    
 Notice that the index/staging-area did not change. That is, `c.txt` is staged, and ready to be committed.
 
-```
+```sh
 git commit -m "Committing changes after a soft reset"
 git status
 ```
 
 Now, let's try the default `reset` behaviour.
 
-```
+```sh
 git reset COMMIT-ID
 git status
 ```
@@ -234,14 +234,14 @@ This time, the index changed as well, and `c.txt` is no longer staged.
 If we run `git commit` at this point, Git will complain that there is nothing to be committed.    
 Let's add `c.txt` to the index again, and commit it.
 
-```
+```sh
 git add c.txt
 git commit -m "Adding c.txt again"
 ```
 
 Now, let's try a hard reset.
 
-```
+```sh
 git reset --hard COMMIT-ID
 git status
 ls
@@ -273,7 +273,7 @@ The page you're reading right now was written using Markdown.
 
 Quick example:
 
-```
+```sh
  * A List item
  * Another list item
 ```
